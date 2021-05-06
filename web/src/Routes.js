@@ -13,10 +13,10 @@ const Routes = () => {
   return (
     <Router>
       <Route path="/admin" page={AdminPage} name="admin" />
-      <Route path="/ideas/new" page={NewIdeaPage} name="newIdea" />
-      <Route path="/ideas/{id:Int}/edit" page={EditIdeaPage} name="editIdea" />
-      <Route path="/ideas/{id:Int}" page={IdeaPage} name="idea" />
-      <Route path="/ideas" page={IdeasPage} name="ideas" />
+      <Route path="/admin/ideas/new" page={NewIdeaPage} name="newIdea" />
+      <Route path="/admin/ideas/{id:Int}/edit" page={EditIdeaPage} name="editIdea" />
+      <Route path="/admin/ideas/{id:Int}" page={IdeaPage} name="idea" />
+      <Route path="/admin/ideas" page={IdeasPage} name="ideas" />
       <Route notfound page={NotFoundPage} />
     </Router>
   )

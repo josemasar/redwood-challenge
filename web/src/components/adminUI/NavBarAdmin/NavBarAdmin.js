@@ -15,32 +15,32 @@ const NavBarAdmin = () => {
       <Navigation.Section
         items={[
           {
-            url: '/path/to/place',
+            url: '/admin',
             label: 'Dashboard',
             icon: HomeMajor,
           },
           {
-            url: '/path/to/place',
+            url: '/admin/ideas',
             label: 'Ideas',
             icon: HintMajor,
             secondaryAction: {
-              url: '/admin/orders/add',
-              accessibilityLabel: 'Add an order',
+              url: '/admin/ideas/new',
+              accessibilityLabel: 'Add an idea',
               icon: CirclePlusOutlineMinor,
             },
           },
           {
-            url: '/path/to/place',
+            url: '/admin/plans',
             label: 'Plans',
             icon: ChecklistMajor,
           },
           {
-            url: '/path/to/place',
+            url: '/admin/tasks',
             label: 'Tasks',
             icon: AppsMajor,
           },
           {
-            url: '/path/to/place',
+            url: '/admin/results',
             label: 'Results',
             icon: AnalyticsMajor,
           },
