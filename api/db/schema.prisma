@@ -27,4 +27,18 @@ model Idea {
   plannedEnd   DateTime
   finish       Boolean  @default(false)
   createdAt    DateTime @default(now())
+  plan         Plan?
+}
+
+//Plan has a one-to-one relation with Idea
+model Plan {
+  id           Int      @id @default(autoincrement())
+  idea         Idea     @relation(fields: [ideaId], references: [id])
+  ideaId       Int
+  owner        String
+  plannedStart DateTime
+  plannedEnd   DateTime
+  finish       Boolean  @default(false)
+  createdAt    DateTime @default(now())
+
 }
