@@ -1,11 +1,11 @@
 import { Link, routes } from '@redwoodjs/router'
-import FrameAdmin from 'src/components/adminUI/FrameAdmin'
 import { Page, CalloutCard, Layout } from '@shopify/polaris'
+import AppLayout from 'src/layouts/AppLayout/AppLayout'
 
 const AdminPage = () => {
   return (
     <>
-      <FrameAdmin>
+      <AppLayout>
         <Page fullWidth title="Dashboard">
           <Layout>
             <Layout.Section>
@@ -13,7 +13,7 @@ const AdminPage = () => {
                 title="Got an idea?"
                 primaryAction={{
                   content: 'New idea',
-                  url: '/ideas',
+                  url: '/admin/ideas/new',
                 }}
               >
                 <p>Create a new idea to reduce cost</p>
@@ -21,7 +21,7 @@ const AdminPage = () => {
             </Layout.Section>
           </Layout>
         </Page>
-      </FrameAdmin>
+      </AppLayout>
     </>
   )
 }

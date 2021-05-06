@@ -25,7 +25,7 @@ const NavBarAdmin = () => {
             icon: HintMajor,
             secondaryAction: {
               url: '/admin/ideas/new',
-              accessibilityLabel: 'Add an order',
+              accessibilityLabel: 'Add an idea',
               icon: CirclePlusOutlineMinor,
             },
           },
