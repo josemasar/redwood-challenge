@@ -61,8 +61,8 @@ const Idea = ({ idea }) => {
               <td>{idea.id}</td>
             </tr>
             <tr>
-              <th>Opps</th>
-              <td>{checkboxInputTag(idea.opps)}</td>
+              <th>Opportunity</th>
+              <td>{checkboxInputTag(idea.opportunity)}</td>
             </tr>
             <tr>
               <th>Product</th>
@@ -99,14 +99,6 @@ const Idea = ({ idea }) => {
             <tr>
               <th>Active</th>
               <td>{checkboxInputTag(idea.active)}</td>
-            </tr>
-            <tr>
-              <th>Planned start</th>
-              <td>{timeTag(idea.plannedStart)}</td>
-            </tr>
-            <tr>
-              <th>Planned end</th>
-              <td>{timeTag(idea.plannedEnd)}</td>
             </tr>
             <tr>
               <th>Finish</th>

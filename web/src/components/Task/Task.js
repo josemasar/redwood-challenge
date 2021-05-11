@@ -2,11 +2,11 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 import { Link, routes, navigate } from '@redwoodjs/router'
 
-import { QUERY } from 'src/components/PlansCell'
+import { QUERY } from 'src/components/TasksCell'
 
-const DELETE_PLAN_MUTATION = gql`
-  mutation DeletePlanMutation($id: Int!) {
-    deletePlan(id: $id) {
+const DELETE_TASK_MUTATION = gql`
+  mutation DeleteTaskMutation($id: Int!) {
+    deleteTask(id: $id) {
       id
     }
   }
@@ -32,17 +32,17 @@ const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
-const Plan = ({ plan }) => {
-  const [deletePlan] = useMutation(DELETE_PLAN_MUTATION, {
+const Task = ({ task }) => {
+  const [deleteTask] = useMutation(DELETE_TASK_MUTATION, {
     onCompleted: () => {
-      toast.success('Plan deleted')
-      navigate(routes.plans())
+      toast.success('Task deleted')
+      navigate(routes.tasks())
     },
   })
 
   const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete plan ' + id + '?')) {
-      deletePlan({ variables: { id } })
+    if (confirm('Are you sure you want to delete task ' + id + '?')) {
+      deleteTask({ variables: { id } })
     }
   }
 
@@ -51,49 +51,49 @@ const Plan = ({ plan }) => {
       <div className="rw-segment">
         <header className="rw-segment-header">
           <h2 className="rw-heading rw-heading-secondary">
-            Plan {plan.id} Detail
+            Task {task.id} Detail
           </h2>
         </header>
         <table className="rw-table">
           <tbody>
             <tr>
               <th>Id</th>
-              <td>{plan.id}</td>
+              <td>{task.id}</td>
             </tr>
             <tr>
-              <th>Idea id</th>
-              <td>{plan.ideaId}</td>
+              <th>Plan id</th>
+              <td>{task.planId}</td>
+            </tr>
+            <tr>
+              <th>Type</th>
+              <td>{task.type}</td>
             </tr>
             <tr>
               <th>Owner</th>
-              <td>{plan.owner}</td>
+              <td>{task.owner}</td>
             </tr>
             <tr>
-              <th>Planned start</th>
-              <td>{timeTag(plan.plannedStart)}</td>
+              <th>Requiredby</th>
+              <td>{timeTag(task.Requiredby)}</td>
             </tr>
             <tr>
-              <th>Planned end</th>
-              <td>{timeTag(plan.plannedEnd)}</td>
+              <th>Status</th>
+              <td>{task.status}</td>
             </tr>
             <tr>
-              <th>Progress</th>
-              <td>{plan.progress}</td>
+              <th>Start</th>
+              <td>{timeTag(task.Start)}</td>
             </tr>
             <tr>
               <th>Finish</th>
-              <td>{checkboxInputTag(plan.finish)}</td>
-            </tr>
-            <tr>
-              <th>Created at</th>
-              <td>{timeTag(plan.createdAt)}</td>
+              <td>{timeTag(task.Finish)}</td>
             </tr>
           </tbody>
         </table>
       </div>
       <nav className="rw-button-group">
         <Link
-          to={routes.editPlan({ id: plan.id })}
+          to={routes.editTask({ id: task.id })}
           className="rw-button rw-button-blue"
         >
           Edit
@@ -101,7 +101,7 @@ const Plan = ({ plan }) => {
         <a
           href="#"
           className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(plan.id)}
+          onClick={() => onDeleteClick(task.id)}
         >
           Delete
         </a>
@@ -110,4 +110,4 @@ const Plan = ({ plan }) => {
   )
 }
 
-export default Plan
+export default Task

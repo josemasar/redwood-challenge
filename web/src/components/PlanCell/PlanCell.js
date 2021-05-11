@@ -8,6 +8,7 @@ export const QUERY = gql`
       owner
       plannedStart
       plannedEnd
+      progress
       finish
       createdAt
     }

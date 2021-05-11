@@ -6,7 +6,6 @@ import {
   NumberField,
   TextField,
   DatetimeLocalField,
-  CheckboxField,
   Submit,
 } from '@redwoodjs/forms'
 
@@ -16,9 +15,9 @@ const formatDatetime = (value) => {
   }
 }
 
-const PlanForm = (props) => {
+const TaskForm = (props) => {
   const onSubmit = (data) => {
-    props.onSave(data, props?.plan?.id)
+    props.onSave(data, props?.task?.id)
   }
 
   return (
@@ -32,20 +31,36 @@ const PlanForm = (props) => {
         />
 
         <Label
-          name="ideaId"
+          name="planId"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Idea id
+          Plan id
         </Label>
         <NumberField
-          name="ideaId"
-          defaultValue={props.plan?.ideaId}
+          name="planId"
+          defaultValue={props.task?.planId}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
-        <FieldError name="ideaId" className="rw-field-error" />
+        <FieldError name="planId" className="rw-field-error" />
+
+        <Label
+          name="type"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Type
+        </Label>
+        <TextField
+          name="type"
+          defaultValue={props.task?.type}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+        <FieldError name="type" className="rw-field-error" />
 
         <Label
           name="owner"
@@ -56,7 +71,7 @@ const PlanForm = (props) => {
         </Label>
         <TextField
           name="owner"
-          defaultValue={props.plan?.owner}
+          defaultValue={props.task?.owner}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
@@ -64,67 +79,68 @@ const PlanForm = (props) => {
         <FieldError name="owner" className="rw-field-error" />
 
         <Label
-          name="plannedStart"
+          name="Requiredby"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Planned start
+          Requiredby
         </Label>
         <DatetimeLocalField
-          name="plannedStart"
-          defaultValue={formatDatetime(props.plan?.plannedStart)}
+          name="Requiredby"
+          defaultValue={formatDatetime(props.task?.Requiredby)}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
-        <FieldError name="plannedStart" className="rw-field-error" />
+        <FieldError name="Requiredby" className="rw-field-error" />
 
         <Label
-          name="plannedEnd"
+          name="status"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Planned end
+          Status
+        </Label>
+        <TextField
+          name="status"
+          defaultValue={props.task?.status}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+        <FieldError name="status" className="rw-field-error" />
+
+        <Label
+          name="Start"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Start
         </Label>
         <DatetimeLocalField
-          name="plannedEnd"
-          defaultValue={formatDatetime(props.plan?.plannedEnd)}
+          name="Start"
+          defaultValue={formatDatetime(props.task?.Start)}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
         />
-        <FieldError name="plannedEnd" className="rw-field-error" />
+        <FieldError name="Start" className="rw-field-error" />
 
         <Label
-          name="progress"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Progress
-        </Label>
-        <NumberField
-          name="progress"
-          defaultValue={props.plan?.progress}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-        <FieldError name="progress" className="rw-field-error" />
-
-        <Label
-          name="finish"
+          name="Finish"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
           Finish
         </Label>
-        <CheckboxField
-          name="finish"
-          defaultChecked={props.plan?.finish}
+        <DatetimeLocalField
+          name="Finish"
+          defaultValue={formatDatetime(props.task?.Finish)}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
         />
-        <FieldError name="finish" className="rw-field-error" />
+        <FieldError name="Finish" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
@@ -136,4 +152,4 @@ const PlanForm = (props) => {
   )
 }
 
-export default PlanForm
+export default TaskForm

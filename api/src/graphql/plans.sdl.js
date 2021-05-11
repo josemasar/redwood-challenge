@@ -6,8 +6,10 @@ export const schema = gql`
     owner: String!
     plannedStart: DateTime!
     plannedEnd: DateTime!
+    progress: Int!
     finish: Boolean!
     createdAt: DateTime!
+    tasks: [Task]!
   }
 
   type Query {
@@ -20,6 +22,7 @@ export const schema = gql`
     owner: String!
     plannedStart: DateTime!
     plannedEnd: DateTime!
+    progress: Int!
     finish: Boolean!
   }
 
@@ -28,6 +31,7 @@ export const schema = gql`
     owner: String
     plannedStart: DateTime
     plannedEnd: DateTime
+    progress: Int
     finish: Boolean
   }
 

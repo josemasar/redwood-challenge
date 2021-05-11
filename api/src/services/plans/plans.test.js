@@ -18,15 +18,17 @@ describe('plans', () => {
       input: {
         ideaId: 'scenario.plan.two.ideaId',
         owner: 'String',
-        plannedStart: '2021-05-06T20:35:47Z',
-        plannedEnd: '2021-05-06T20:35:47Z',
+        plannedStart: '2021-05-11T08:36:35Z',
+        plannedEnd: '2021-05-11T08:36:35Z',
+        progress: 7466277,
       },
     })
 
     expect(result.ideaId).toEqual('scenario.plan.two.ideaId')
     expect(result.owner).toEqual('String')
-    expect(result.plannedStart).toEqual('2021-05-06T20:35:47Z')
-    expect(result.plannedEnd).toEqual('2021-05-06T20:35:47Z')
+    expect(result.plannedStart).toEqual('2021-05-11T08:36:35Z')
+    expect(result.plannedEnd).toEqual('2021-05-11T08:36:35Z')
+    expect(result.progress).toEqual(7466277)
   })
 
   scenario('updates a plan', async (scenario) => {

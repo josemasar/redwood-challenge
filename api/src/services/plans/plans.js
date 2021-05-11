@@ -32,4 +32,6 @@ export const deletePlan = ({ id }) => {
 export const Plan = {
   idea: (_obj, { root }) =>
     db.plan.findUnique({ where: { id: root.id } }).idea(),
+  tasks: (_obj, { root }) =>
+    db.plan.findUnique({ where: { id: root.id } }).tasks(),
 }

@@ -2,19 +2,19 @@ import { Link, routes } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
 import AppLayout from 'src/layouts/AppLayout/AppLayout'
 
-const IdeasLayout = (props) => {
+const TasksLayout = (props) => {
   return (
     <AppLayout>
       <div className="rw-scaffold">
         <Toaster />
         <header className="rw-header">
           <h1 className="rw-heading rw-heading-primary">
-            <Link to={routes.ideas()} className="rw-link">
-              Ideas
+            <Link to={routes.tasks()} className="rw-link">
+              Tasks
             </Link>
           </h1>
-          <Link to={routes.newIdea()} className="rw-button rw-button-green">
-            <div className="rw-button-icon">+</div> New Idea
+          <Link to={routes.newTask()} className="rw-button rw-button-green">
+            <div className="rw-button-icon">+</div> New Task
           </Link>
         </header>
         <main className="rw-main">{props.children}</main>
@@ -23,4 +23,4 @@ const IdeasLayout = (props) => {
   )
 }
 
-export default IdeasLayout
+export default TasksLayout

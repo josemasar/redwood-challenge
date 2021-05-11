@@ -66,6 +66,7 @@ const PlansList = ({ plans }) => {
             <th>Owner</th>
             <th>Planned start</th>
             <th>Planned end</th>
+            <th>Progress</th>
             <th>Finish</th>
             <th>Created at</th>
             <th>&nbsp;</th>
@@ -79,6 +80,7 @@ const PlansList = ({ plans }) => {
               <td>{truncate(plan.owner)}</td>
               <td>{timeTag(plan.plannedStart)}</td>
               <td>{timeTag(plan.plannedEnd)}</td>
+              <td>{truncate(plan.progress)}</td>
               <td>{checkboxInputTag(plan.finish)}</td>
               <td>{timeTag(plan.createdAt)}</td>
               <td>

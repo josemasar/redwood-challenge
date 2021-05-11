@@ -4,7 +4,7 @@ export const QUERY = gql`
   query FIND_IDEA_BY_ID($id: Int!) {
     idea: idea(id: $id) {
       id
-      opps
+      opportunity
       product
       system
       partNum
@@ -14,8 +14,6 @@ export const QUERY = gql`
       value
       author
       active
-      plannedStart
-      plannedEnd
       finish
       createdAt
     }

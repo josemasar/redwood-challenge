@@ -7,7 +7,7 @@ export const QUERY = gql`
   query FIND_IDEA_BY_ID($id: Int!) {
     idea: idea(id: $id) {
       id
-      opps
+      opportunity
       product
       system
       partNum
@@ -17,8 +17,6 @@ export const QUERY = gql`
       value
       author
       active
-      plannedStart
-      plannedEnd
       finish
       createdAt
     }
@@ -28,7 +26,7 @@ const UPDATE_IDEA_MUTATION = gql`
   mutation UpdateIdeaMutation($id: Int!, $input: UpdateIdeaInput!) {
     updateIdea(id: $id, input: $input) {
       id
-      opps
+      opportunity
       product
       system
       partNum
@@ -38,8 +36,6 @@ const UPDATE_IDEA_MUTATION = gql`
       value
       author
       active
-      plannedStart
-      plannedEnd
       finish
       createdAt
     }

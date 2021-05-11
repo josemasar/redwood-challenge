@@ -28,3 +28,8 @@ export const deleteIdea = ({ id }) => {
     where: { id },
   })
 }
+
+export const Idea = {
+  plan: (_obj, { root }) =>
+    db.idea.findUnique({ where: { id: root.id } }).plan(),
+}

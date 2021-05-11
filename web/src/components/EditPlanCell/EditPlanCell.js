@@ -11,6 +11,7 @@ export const QUERY = gql`
       owner
       plannedStart
       plannedEnd
+      progress
       finish
       createdAt
     }
@@ -24,6 +25,7 @@ const UPDATE_PLAN_MUTATION = gql`
       owner
       plannedStart
       plannedEnd
+      progress
       finish
       createdAt
     }

@@ -2,11 +2,11 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 import { Link, routes } from '@redwoodjs/router'
 
-import { QUERY } from 'src/components/IdeasCell'
+import { QUERY } from 'src/components/TasksCell'
 
-const DELETE_IDEA_MUTATION = gql`
-  mutation DeleteIdeaMutation($id: Int!) {
-    deleteIdea(id: $id) {
+const DELETE_TASK_MUTATION = gql`
+  mutation DeleteTaskMutation($id: Int!) {
+    deleteTask(id: $id) {
       id
     }
   }
@@ -38,10 +38,10 @@ const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
-const IdeasList = ({ ideas }) => {
-  const [deleteIdea] = useMutation(DELETE_IDEA_MUTATION, {
+const TasksList = ({ tasks }) => {
+  const [deleteTask] = useMutation(DELETE_TASK_MUTATION, {
     onCompleted: () => {
-      toast.success('Idea deleted')
+      toast.success('Task deleted')
     },
     // This refetches the query on the list page. Read more about other ways to
     // update the cache over here:
@@ -51,8 +51,8 @@ const IdeasList = ({ ideas }) => {
   })
 
   const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete idea ' + id + '?')) {
-      deleteIdea({ variables: { id } })
+    if (confirm('Are you sure you want to delete task ' + id + '?')) {
+      deleteTask({ variables: { id } })
     }
   }
 
@@ -62,58 +62,48 @@ const IdeasList = ({ ideas }) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Opportunity</th>
-            <th>Product</th>
-            <th>System</th>
-            <th>Part num</th>
-            <th>Vendor</th>
-            <th>Title</th>
-            <th>Body</th>
-            <th>Value</th>
-            <th>Author</th>
-            <th>Active</th>
+            <th>Plan id</th>
+            <th>Type</th>
+            <th>Owner</th>
+            <th>Requiredby</th>
+            <th>Status</th>
+            <th>Start</th>
             <th>Finish</th>
-            <th>Created at</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
-          {ideas.map((idea) => (
-            <tr key={idea.id}>
-              <td>{truncate(idea.id)}</td>
-              <td>{checkboxInputTag(idea.opportunity)}</td>
-              <td>{truncate(idea.product)}</td>
-              <td>{truncate(idea.system)}</td>
-              <td>{truncate(idea.partNum)}</td>
-              <td>{truncate(idea.vendor)}</td>
-              <td>{truncate(idea.title)}</td>
-              <td>{truncate(idea.body)}</td>
-              <td>{truncate(idea.value)}</td>
-              <td>{truncate(idea.author)}</td>
-              <td>{checkboxInputTag(idea.active)}</td>
-              <td>{checkboxInputTag(idea.finish)}</td>
-              <td>{timeTag(idea.createdAt)}</td>
+          {tasks.map((task) => (
+            <tr key={task.id}>
+              <td>{truncate(task.id)}</td>
+              <td>{truncate(task.planId)}</td>
+              <td>{truncate(task.type)}</td>
+              <td>{truncate(task.owner)}</td>
+              <td>{timeTag(task.Requiredby)}</td>
+              <td>{truncate(task.status)}</td>
+              <td>{timeTag(task.Start)}</td>
+              <td>{timeTag(task.Finish)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
-                    to={routes.idea({ id: idea.id })}
-                    title={'Show idea ' + idea.id + ' detail'}
+                    to={routes.task({ id: task.id })}
+                    title={'Show task ' + task.id + ' detail'}
                     className="rw-button rw-button-small"
                   >
                     Show
                   </Link>
                   <Link
-                    to={routes.editIdea({ id: idea.id })}
-                    title={'Edit idea ' + idea.id}
+                    to={routes.editTask({ id: task.id })}
+                    title={'Edit task ' + task.id}
                     className="rw-button rw-button-small rw-button-blue"
                   >
                     Edit
                   </Link>
                   <a
                     href="#"
-                    title={'Delete idea ' + idea.id}
+                    title={'Delete task ' + task.id}
                     className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(idea.id)}
+                    onClick={() => onDeleteClick(task.id)}
                   >
                     Delete
                   </a>
@@ -127,4 +117,4 @@ const IdeasList = ({ ideas }) => {
   )
 }
 
-export default IdeasList
+export default TasksList
