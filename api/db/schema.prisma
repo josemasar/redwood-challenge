@@ -42,6 +42,7 @@ model Plan {
   tasks        Task[]
 }
 
+//Plan has a one-to-many relation with Task
 model Task {
   id         Int      @id @default(autoincrement())
   plan       Plan     @relation(fields: [planId], references: [id])
