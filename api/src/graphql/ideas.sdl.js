@@ -16,9 +16,14 @@ export const schema = gql`
     plan: Plan
   }
 
+  type sumIdeas {
+    total: Int
+  }
+
   type Query {
     ideas: [Idea!]!
     idea(id: Int!): Idea
+    sumIdeas: [sumIdeas]
   }
 
   input CreateIdeaInput {

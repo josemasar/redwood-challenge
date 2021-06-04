@@ -2,6 +2,7 @@ import { Link, routes } from '@redwoodjs/router'
 import { Page, CalloutCard, Layout, MediaCard } from '@shopify/polaris'
 import AppLayout from 'src/layouts/AppLayout/AppLayout'
 import BarChartIdeasCell from 'src/components/BarChartIdeasCell/BarChartIdeasCell'
+import SumIdeasCell from 'src/components/SumIdeasCell/SumIdeasCell'
 
 const AdminPage = () => {
   return (
@@ -21,6 +22,7 @@ const AdminPage = () => {
               </CalloutCard>
             </Layout.Section>
             <Layout.Section>
+            <SumIdeasCell/>
               <MediaCard
                 title="Total ideas value in your organisation"
                 primaryAction={{
@@ -32,6 +34,7 @@ const AdminPage = () => {
               >
                 <BarChartIdeasCell />
               </MediaCard>
+
             </Layout.Section>
           </Layout>
         </Page>

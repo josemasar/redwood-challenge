@@ -33,3 +33,7 @@ export const Idea = {
   plan: (_obj, { root }) =>
     db.idea.findUnique({ where: { id: root.id } }).plan(),
 }
+
+export const sumIdeas = () => {
+  return db.$queryRaw('SELECT SUM(value) AS total from Idea;')
+}
