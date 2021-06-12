@@ -6,7 +6,6 @@ import {
   CheckboxField,
   TextField,
   NumberField,
-  DatetimeLocalField,
   Submit,
 } from '@redwoodjs/forms'
 
@@ -32,19 +31,19 @@ const IdeaForm = (props) => {
         />
 
         <Label
-          name="opps"
+          name="opportunity"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Opps
+          Opportunity
         </Label>
         <CheckboxField
-          name="opps"
-          defaultChecked={props.idea?.opps}
+          name="opportunity"
+          defaultChecked={props.idea?.opportunity}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
         />
-        <FieldError name="opps" className="rw-field-error" />
+        <FieldError name="opportunity" className="rw-field-error" />
 
         <Label
           name="product"
@@ -188,38 +187,6 @@ const IdeaForm = (props) => {
           errorClassName="rw-input rw-input-error"
         />
         <FieldError name="active" className="rw-field-error" />
-
-        <Label
-          name="plannedStart"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Planned start
-        </Label>
-        <DatetimeLocalField
-          name="plannedStart"
-          defaultValue={formatDatetime(props.idea?.plannedStart)}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-        <FieldError name="plannedStart" className="rw-field-error" />
-
-        <Label
-          name="plannedEnd"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Planned end
-        </Label>
-        <DatetimeLocalField
-          name="plannedEnd"
-          defaultValue={formatDatetime(props.idea?.plannedEnd)}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-        <FieldError name="plannedEnd" className="rw-field-error" />
 
         <Label
           name="finish"

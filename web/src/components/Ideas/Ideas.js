@@ -62,7 +62,7 @@ const IdeasList = ({ ideas }) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Opps</th>
+            <th>Opportunity</th>
             <th>Product</th>
             <th>System</th>
             <th>Part num</th>
@@ -72,8 +72,6 @@ const IdeasList = ({ ideas }) => {
             <th>Value</th>
             <th>Author</th>
             <th>Active</th>
-            <th>Planned start</th>
-            <th>Planned end</th>
             <th>Finish</th>
             <th>Created at</th>
             <th>&nbsp;</th>
@@ -83,7 +81,7 @@ const IdeasList = ({ ideas }) => {
           {ideas.map((idea) => (
             <tr key={idea.id}>
               <td>{truncate(idea.id)}</td>
-              <td>{checkboxInputTag(idea.opps)}</td>
+              <td>{checkboxInputTag(idea.opportunity)}</td>
               <td>{truncate(idea.product)}</td>
               <td>{truncate(idea.system)}</td>
               <td>{truncate(idea.partNum)}</td>
@@ -93,8 +91,6 @@ const IdeasList = ({ ideas }) => {
               <td>{truncate(idea.value)}</td>
               <td>{truncate(idea.author)}</td>
               <td>{checkboxInputTag(idea.active)}</td>
-              <td>{timeTag(idea.plannedStart)}</td>
-              <td>{timeTag(idea.plannedEnd)}</td>
               <td>{checkboxInputTag(idea.finish)}</td>
               <td>{timeTag(idea.createdAt)}</td>
               <td>

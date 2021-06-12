@@ -6,7 +6,7 @@ export const QUERY = gql`
   query IDEAS {
     ideas {
       id
-      opps
+      opportunity
       product
       system
       partNum
@@ -16,8 +16,6 @@ export const QUERY = gql`
       value
       author
       active
-      plannedStart
-      plannedEnd
       finish
       createdAt
     }

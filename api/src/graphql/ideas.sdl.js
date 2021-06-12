@@ -1,7 +1,7 @@
 export const schema = gql`
   type Idea {
     id: Int!
-    opps: Boolean!
+    opportunity: Boolean!
     product: String!
     system: String!
     partNum: String!
@@ -11,19 +11,23 @@ export const schema = gql`
     value: Int!
     author: String!
     active: Boolean!
-    plannedStart: DateTime!
-    plannedEnd: DateTime!
     finish: Boolean!
     createdAt: DateTime!
+    plan: Plan
+  }
+
+  type sumIdeas {
+    total: Int
   }
 
   type Query {
     ideas: [Idea!]!
     idea(id: Int!): Idea
+    sumIdeas: [sumIdeas]
   }
 
   input CreateIdeaInput {
-    opps: Boolean!
+    opportunity: Boolean!
     product: String!
     system: String!
     partNum: String!
@@ -33,13 +37,11 @@ export const schema = gql`
     value: Int!
     author: String!
     active: Boolean!
-    plannedStart: DateTime!
-    plannedEnd: DateTime!
     finish: Boolean!
   }
 
   input UpdateIdeaInput {
-    opps: Boolean
+    opportunity: Boolean
     product: String
     system: String
     partNum: String
@@ -49,8 +51,6 @@ export const schema = gql`
     value: Int
     author: String
     active: Boolean
-    plannedStart: DateTime
-    plannedEnd: DateTime
     finish: Boolean
   }
 

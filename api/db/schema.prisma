@@ -12,19 +12,46 @@ generator client {
 // to create migrations for them and apply to your dev DB.
 // TODO: Please remove the following example:
 model Idea {
+  id          Int      @id @default(autoincrement())
+  opportunity Boolean
+  product     String
+  system      String
+  partNum     String
+  vendor      String
+  title       String
+  body        String
+  value       Int
+  author      String
+  active      Boolean  @default(false)
+  finish      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  plan        Plan?
+}
+
+//Plan has a one-to-one relation with Idea
+model Plan {
   id           Int      @id @default(autoincrement())
-  opps         Boolean
-  product      String
-  system       String
-  partNum      String
-  vendor       String
-  title        String
-  body         String
-  value        Int
-  author       String
-  active       Boolean  @default(false)
+  idea         Idea     @relation(fields: [ideaId], references: [id])
+  ideaId       Int
+  owner        String
   plannedStart DateTime
   plannedEnd   DateTime
+  progress     Int
   finish       Boolean  @default(false)
   createdAt    DateTime @default(now())
+  tasks        Task[]
+}
+
+//Plan has a one-to-many relation with Task
+model Task {
+  id         Int      @id @default(autoincrement())
+  plan       Plan     @relation(fields: [planId], references: [id])
+  planId     Int
+  type       String
+  owner      String
+  Requiredby DateTime
+  status     String
+  Start      DateTime
+  Finish     DateTime
+
 }
