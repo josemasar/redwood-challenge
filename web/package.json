@@ -13,9 +13,9 @@
     ]
   },
   "dependencies": {
-    "@redwoodjs/forms": "^0.33.3",
-    "@redwoodjs/router": "^0.33.3",
-    "@redwoodjs/web": "^0.33.3",
+    "@redwoodjs/forms": "^0.35.2",
+    "@redwoodjs/router": "^0.35.2",
+    "@redwoodjs/web": "^0.35.2",
     "@shopify/polaris": "^6.3.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
