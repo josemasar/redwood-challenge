@@ -1,4 +1,5 @@
 import { Link, routes } from '@redwoodjs/router'
+import CardsIndex from 'src/components/CardsIndex/'
 
 const IndexPage = () => {
   return (
@@ -18,20 +19,23 @@ const IndexPage = () => {
       </div>
       <div
         className="container mx-auto min-w-full min-h-full flex flex-auto justify-center
-    bg-gradient-to-tl from-purple-600 via-indigo-400 to-green-500"
+    bg-wave"
       >
-        <h1 className="max-w-6xl mt-28 mb-28 text-7xl md:text-8xl font-black text-center p-40 align-middle">
-          Rapidly control cost of industrial goods
+        <h1 className="max-w-6xl mt-22 mb-48 text-7xl md:text-8xl font-bold tracking-wider text-white text-center py-60 align-middle">
+          Rapidly control <strong className="text-yellow-400">cost</strong> of
+          industrial goods
         </h1>
       </div>
-      <div className="container mx-auto mt-40">
-        <h2 className="text-6xl font-bold text-center">Why Costbase?</h2>
-        <h4 className="text-2xl text-center mt-12 font-medium opacity-75">
-          The next world´s smartest solution to lower costs in high complex
-          assembled products
-        </h4>
+      <div className="bg-white pt-10">
+        <div className="container mx-auto mt-40">
+          <h2 className="text-6xl font-bold text-center">Why Costbase?</h2>
+          <h4 className="text-2xl text-center mt-12 font-medium opacity-75">
+            The next world´s smartest solution to lower costs in high complex
+            assembled products
+          </h4>
+        </div>
+        <CardsIndex />
       </div>
-      <div className="bg-local bg-wave"></div>
     </>
   )
 }
