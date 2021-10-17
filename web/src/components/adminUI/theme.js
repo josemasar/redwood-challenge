@@ -2,7 +2,7 @@ const theme = {
   logo: {
     width: 32,
     topBarSource: '/public/favicon.png',
-    url: 'https://redwoodjs.com/',
+    url: '/',
     accessibilityLabel: 'rw-challenge',
   },
 }

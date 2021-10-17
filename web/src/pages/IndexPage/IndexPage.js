@@ -31,6 +31,7 @@ const IndexPage = () => {
           assembled products
         </h4>
       </div>
+      <div className="bg-local bg-wave"></div>
     </>
   )
 }
