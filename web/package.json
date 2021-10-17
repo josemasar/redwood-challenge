@@ -13,19 +13,18 @@
     ]
   },
   "dependencies": {
-    "@redwoodjs/forms": "^0.36.4",
-    "@redwoodjs/router": "^0.36.4",
-    "@redwoodjs/web": "^0.36.4",
-    "@shopify/polaris": "^6.6.0",
+    "@redwoodjs/forms": "^0.33.3",
+    "@redwoodjs/router": "^0.33.3",
+    "@redwoodjs/web": "^0.33.3",
+    "@shopify/polaris": "^6.3.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "recharts": "^2.0.9"
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.1",
-    "postcss": "^8.3.6",
-    "postcss-loader": "^6.1.1",
-    "tailwindcss": "^2.2.7"
+    "autoprefixer": "9.8.6",
+    "postcss-loader": "4.0.2",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }
