@@ -22,7 +22,7 @@ const IdeaForm = (props) => {
 
   return (
     <div className="rw-form-wrapper">
-      <Form onSubmit={onSubmit} error={props.error}>
+      <Form onSubmit={onSubmit} config={{ mode: 'onBlur' }} error={props.error}>
         <FormError
           error={props.error}
           wrapperClassName="rw-form-error-wrapper"
@@ -57,7 +57,7 @@ const IdeaForm = (props) => {
           defaultValue={props.idea?.product}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="product" className="rw-field-error" />
 
@@ -73,7 +73,7 @@ const IdeaForm = (props) => {
           defaultValue={props.idea?.system}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="system" className="rw-field-error" />
 
@@ -89,7 +89,7 @@ const IdeaForm = (props) => {
           defaultValue={props.idea?.partNum}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="partNum" className="rw-field-error" />
 
@@ -105,7 +105,7 @@ const IdeaForm = (props) => {
           defaultValue={props.idea?.vendor}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="vendor" className="rw-field-error" />
 
@@ -121,7 +121,7 @@ const IdeaForm = (props) => {
           defaultValue={props.idea?.title}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="title" className="rw-field-error" />
 
@@ -137,7 +137,7 @@ const IdeaForm = (props) => {
           defaultValue={props.idea?.body}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="body" className="rw-field-error" />
 
@@ -153,7 +153,7 @@ const IdeaForm = (props) => {
           defaultValue={props.idea?.value}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="value" className="rw-field-error" />
 
@@ -169,7 +169,7 @@ const IdeaForm = (props) => {
           defaultValue={props.idea?.author}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="author" className="rw-field-error" />
 

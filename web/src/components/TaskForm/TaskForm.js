@@ -22,7 +22,7 @@ const TaskForm = (props) => {
 
   return (
     <div className="rw-form-wrapper">
-      <Form onSubmit={onSubmit} error={props.error}>
+      <Form onSubmit={onSubmit} config={{ mode: 'onBlur' }} error={props.error}>
         <FormError
           error={props.error}
           wrapperClassName="rw-form-error-wrapper"
@@ -42,7 +42,7 @@ const TaskForm = (props) => {
           defaultValue={props.task?.planId}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="planId" className="rw-field-error" />
 
@@ -58,7 +58,7 @@ const TaskForm = (props) => {
           defaultValue={props.task?.type}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="type" className="rw-field-error" />
 
@@ -74,7 +74,7 @@ const TaskForm = (props) => {
           defaultValue={props.task?.owner}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="owner" className="rw-field-error" />
 
@@ -90,7 +90,7 @@ const TaskForm = (props) => {
           defaultValue={formatDatetime(props.task?.Requiredby)}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="Requiredby" className="rw-field-error" />
 
@@ -106,7 +106,7 @@ const TaskForm = (props) => {
           defaultValue={props.task?.status}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="status" className="rw-field-error" />
 
@@ -122,7 +122,7 @@ const TaskForm = (props) => {
           defaultValue={formatDatetime(props.task?.Start)}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="Start" className="rw-field-error" />
 
@@ -138,7 +138,7 @@ const TaskForm = (props) => {
           defaultValue={formatDatetime(props.task?.Finish)}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="Finish" className="rw-field-error" />
 

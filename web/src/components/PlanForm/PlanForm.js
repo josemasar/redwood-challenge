@@ -23,7 +23,7 @@ const PlanForm = (props) => {
 
   return (
     <div className="rw-form-wrapper">
-      <Form onSubmit={onSubmit} error={props.error}>
+      <Form onSubmit={onSubmit} config={{ mode: 'onBlur' }} error={props.error}>
         <FormError
           error={props.error}
           wrapperClassName="rw-form-error-wrapper"
@@ -43,7 +43,7 @@ const PlanForm = (props) => {
           defaultValue={props.plan?.ideaId}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="ideaId" className="rw-field-error" />
 
@@ -59,7 +59,7 @@ const PlanForm = (props) => {
           defaultValue={props.plan?.owner}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="owner" className="rw-field-error" />
 
@@ -75,7 +75,7 @@ const PlanForm = (props) => {
           defaultValue={formatDatetime(props.plan?.plannedStart)}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="plannedStart" className="rw-field-error" />
 
@@ -91,7 +91,7 @@ const PlanForm = (props) => {
           defaultValue={formatDatetime(props.plan?.plannedEnd)}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="plannedEnd" className="rw-field-error" />
 
@@ -107,7 +107,7 @@ const PlanForm = (props) => {
           defaultValue={props.plan?.progress}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ valueAsNumber: true }}
         />
         <FieldError name="progress" className="rw-field-error" />
 

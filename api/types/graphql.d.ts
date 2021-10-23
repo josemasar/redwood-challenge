@@ -19,59 +19,55 @@ export type Scalars = {
 };
 
 export type CreateIdeaInput = {
+  active: Scalars['Boolean'];
+  author: Scalars['String'];
+  body: Scalars['String'];
+  finish: Scalars['Boolean'];
   opportunity: Scalars['Boolean'];
+  partNum: Scalars['String'];
   product: Scalars['String'];
   system: Scalars['String'];
-  partNum: Scalars['String'];
-  vendor: Scalars['String'];
   title: Scalars['String'];
-  body: Scalars['String'];
   value: Scalars['Int'];
-  author: Scalars['String'];
-  active: Scalars['Boolean'];
-  finish: Scalars['Boolean'];
+  vendor: Scalars['String'];
 };
 
 export type CreatePlanInput = {
+  finish: Scalars['Boolean'];
   ideaId: Scalars['Int'];
   owner: Scalars['String'];
-  plannedStart: Scalars['DateTime'];
   plannedEnd: Scalars['DateTime'];
+  plannedStart: Scalars['DateTime'];
   progress: Scalars['Int'];
-  finish: Scalars['Boolean'];
 };
 
 export type CreateTaskInput = {
-  planId: Scalars['Int'];
-  type: Scalars['String'];
-  owner: Scalars['String'];
-  Requiredby: Scalars['DateTime'];
-  status: Scalars['String'];
-  Start: Scalars['DateTime'];
   Finish: Scalars['DateTime'];
+  Requiredby: Scalars['DateTime'];
+  Start: Scalars['DateTime'];
+  owner: Scalars['String'];
+  planId: Scalars['Int'];
+  status: Scalars['String'];
+  type: Scalars['String'];
 };
-
-
 
 export type Idea = {
   __typename?: 'Idea';
+  active: Scalars['Boolean'];
+  author: Scalars['String'];
+  body: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  finish: Scalars['Boolean'];
   id: Scalars['Int'];
   opportunity: Scalars['Boolean'];
+  partNum: Scalars['String'];
+  plan?: Maybe<Plan>;
   product: Scalars['String'];
   system: Scalars['String'];
-  partNum: Scalars['String'];
-  vendor: Scalars['String'];
   title: Scalars['String'];
-  body: Scalars['String'];
   value: Scalars['Int'];
-  author: Scalars['String'];
-  active: Scalars['Boolean'];
-  finish: Scalars['Boolean'];
-  createdAt: Scalars['DateTime'];
-  plan?: Maybe<Plan>;
+  vendor: Scalars['String'];
 };
-
-
 
 export type Mutation = {
   __typename?: 'Mutation';
@@ -136,15 +132,15 @@ export type MutationUpdateTaskArgs = {
 
 export type Plan = {
   __typename?: 'Plan';
+  createdAt: Scalars['DateTime'];
+  finish: Scalars['Boolean'];
   id: Scalars['Int'];
   idea: Idea;
   ideaId: Scalars['Int'];
   owner: Scalars['String'];
-  plannedStart: Scalars['DateTime'];
   plannedEnd: Scalars['DateTime'];
+  plannedStart: Scalars['DateTime'];
   progress: Scalars['Int'];
-  finish: Scalars['Boolean'];
-  createdAt: Scalars['DateTime'];
   tasks: Array<Maybe<Task>>;
 };
 
@@ -177,56 +173,55 @@ export type QueryTaskArgs = {
 
 export type Redwood = {
   __typename?: 'Redwood';
-  version?: Maybe<Scalars['String']>;
   currentUser?: Maybe<Scalars['JSON']>;
   prismaVersion?: Maybe<Scalars['String']>;
+  version?: Maybe<Scalars['String']>;
 };
 
 export type Task = {
   __typename?: 'Task';
+  Finish: Scalars['DateTime'];
+  Requiredby: Scalars['DateTime'];
+  Start: Scalars['DateTime'];
   id: Scalars['Int'];
+  owner: Scalars['String'];
   plan: Plan;
   planId: Scalars['Int'];
-  type: Scalars['String'];
-  owner: Scalars['String'];
-  Requiredby: Scalars['DateTime'];
   status: Scalars['String'];
-  Start: Scalars['DateTime'];
-  Finish: Scalars['DateTime'];
+  type: Scalars['String'];
 };
 
-
 export type UpdateIdeaInput = {
+  active?: Maybe<Scalars['Boolean']>;
+  author?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['String']>;
+  finish?: Maybe<Scalars['Boolean']>;
   opportunity?: Maybe<Scalars['Boolean']>;
+  partNum?: Maybe<Scalars['String']>;
   product?: Maybe<Scalars['String']>;
   system?: Maybe<Scalars['String']>;
-  partNum?: Maybe<Scalars['String']>;
-  vendor?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
   value?: Maybe<Scalars['Int']>;
-  author?: Maybe<Scalars['String']>;
-  active?: Maybe<Scalars['Boolean']>;
-  finish?: Maybe<Scalars['Boolean']>;
+  vendor?: Maybe<Scalars['String']>;
 };
 
 export type UpdatePlanInput = {
+  finish?: Maybe<Scalars['Boolean']>;
   ideaId?: Maybe<Scalars['Int']>;
   owner?: Maybe<Scalars['String']>;
-  plannedStart?: Maybe<Scalars['DateTime']>;
   plannedEnd?: Maybe<Scalars['DateTime']>;
+  plannedStart?: Maybe<Scalars['DateTime']>;
   progress?: Maybe<Scalars['Int']>;
-  finish?: Maybe<Scalars['Boolean']>;
 };
 
 export type UpdateTaskInput = {
-  planId?: Maybe<Scalars['Int']>;
-  type?: Maybe<Scalars['String']>;
-  owner?: Maybe<Scalars['String']>;
-  Requiredby?: Maybe<Scalars['DateTime']>;
-  status?: Maybe<Scalars['String']>;
-  Start?: Maybe<Scalars['DateTime']>;
   Finish?: Maybe<Scalars['DateTime']>;
+  Requiredby?: Maybe<Scalars['DateTime']>;
+  Start?: Maybe<Scalars['DateTime']>;
+  owner?: Maybe<Scalars['String']>;
+  planId?: Maybe<Scalars['Int']>;
+  status?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
 };
 
 export type SumIdeas = {
@@ -239,19 +234,10 @@ export type SumIdeas = {
 export type ResolverTypeWrapper<T> = Promise<T> | T;
 
 
-export type LegacyStitchingResolver<TResult, TParent, TContext, TArgs> = {
-  fragment: string;
+export type ResolverWithResolve<TResult, TParent, TContext, TArgs> = {
   resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
 };
-
-export type NewStitchingResolver<TResult, TParent, TContext, TArgs> = {
-  selectionSet: string;
-  resolve: ResolverFn<TResult, TParent, TContext, TArgs>;
-};
-export type StitchingResolver<TResult, TParent, TContext, TArgs> = LegacyStitchingResolver<TResult, TParent, TContext, TArgs> | NewStitchingResolver<TResult, TParent, TContext, TArgs>;
-export type Resolver<TResult, TParent = {}, TContext = {}, TArgs = {}> =
-  | ResolverFn<TResult, TParent, TContext, TArgs>
-  | StitchingResolver<TResult, TParent, TContext, TArgs>;
+export type Resolver<TResult, TParent = {}, TContext = {}, TArgs = {}> = ResolverFn<TResult, TParent, TContext, TArgs> | ResolverWithResolve<TResult, TParent, TContext, TArgs>;
 
 export type ResolverFn<TResult, TParent, TContext, TArgs> = (
   parent: TParent,
@@ -312,21 +298,21 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  CreateIdeaInput: CreateIdeaInput;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
-  String: ResolverTypeWrapper<Scalars['String']>;
-  Int: ResolverTypeWrapper<Scalars['Int']>;
+  CreateIdeaInput: CreateIdeaInput;
   CreatePlanInput: CreatePlanInput;
   CreateTaskInput: CreateTaskInput;
   Date: ResolverTypeWrapper<Scalars['Date']>;
   DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
   Idea: ResolverTypeWrapper<Idea>;
+  Int: ResolverTypeWrapper<Scalars['Int']>;
   JSON: ResolverTypeWrapper<Scalars['JSON']>;
   JSONObject: ResolverTypeWrapper<Scalars['JSONObject']>;
   Mutation: ResolverTypeWrapper<{}>;
   Plan: ResolverTypeWrapper<Plan>;
   Query: ResolverTypeWrapper<{}>;
   Redwood: ResolverTypeWrapper<Redwood>;
+  String: ResolverTypeWrapper<Scalars['String']>;
   Task: ResolverTypeWrapper<Task>;
   Time: ResolverTypeWrapper<Scalars['Time']>;
   UpdateIdeaInput: UpdateIdeaInput;
@@ -337,21 +323,21 @@ export type ResolversTypes = {
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  CreateIdeaInput: CreateIdeaInput;
   Boolean: Scalars['Boolean'];
-  String: Scalars['String'];
-  Int: Scalars['Int'];
+  CreateIdeaInput: CreateIdeaInput;
   CreatePlanInput: CreatePlanInput;
   CreateTaskInput: CreateTaskInput;
   Date: Scalars['Date'];
   DateTime: Scalars['DateTime'];
   Idea: Idea;
+  Int: Scalars['Int'];
   JSON: Scalars['JSON'];
   JSONObject: Scalars['JSONObject'];
   Mutation: {};
   Plan: Plan;
   Query: {};
   Redwood: Redwood;
+  String: Scalars['String'];
   Task: Task;
   Time: Scalars['Time'];
   UpdateIdeaInput: UpdateIdeaInput;
@@ -359,6 +345,16 @@ export type ResolversParentTypes = {
   UpdateTaskInput: UpdateTaskInput;
   sumIdeas: SumIdeas;
 };
+
+export type RequireAuthDirectiveArgs = {
+  roles?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type RequireAuthDirectiveResolver<Result, Parent, ContextType = any, Args = RequireAuthDirectiveArgs> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
+
+export type SkipAuthDirectiveArgs = { };
+
+export type SkipAuthDirectiveResolver<Result, Parent, ContextType = any, Args = SkipAuthDirectiveArgs> = DirectiveResolverFn<Result, Parent, ContextType, Args>;
 
 export interface DateScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Date'], any> {
   name: 'Date';
@@ -369,20 +365,20 @@ export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversT
 }
 
 export type IdeaResolvers<ContextType = any, ParentType extends ResolversParentTypes['Idea'] = ResolversParentTypes['Idea']> = {
+  active?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  author?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
+  finish?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   opportunity?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  partNum?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  plan?: Resolver<Maybe<ResolversTypes['Plan']>, ParentType, ContextType>;
   product?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   system?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  partNum?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  vendor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   value?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  author?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  active?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  finish?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
-  plan?: Resolver<Maybe<ResolversTypes['Plan']>, ParentType, ContextType>;
+  vendor?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -407,15 +403,15 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 };
 
 export type PlanResolvers<ContextType = any, ParentType extends ResolversParentTypes['Plan'] = ResolversParentTypes['Plan']> = {
+  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
+  finish?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   idea?: Resolver<ResolversTypes['Idea'], ParentType, ContextType>;
   ideaId?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   owner?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  plannedStart?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   plannedEnd?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
+  plannedStart?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   progress?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  finish?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
-  createdAt?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   tasks?: Resolver<Array<Maybe<ResolversTypes['Task']>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -432,22 +428,22 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 };
 
 export type RedwoodResolvers<ContextType = any, ParentType extends ResolversParentTypes['Redwood'] = ResolversParentTypes['Redwood']> = {
-  version?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   currentUser?: Resolver<Maybe<ResolversTypes['JSON']>, ParentType, ContextType>;
   prismaVersion?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  version?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type TaskResolvers<ContextType = any, ParentType extends ResolversParentTypes['Task'] = ResolversParentTypes['Task']> = {
+  Finish?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
+  Requiredby?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
+  Start?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  owner?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   plan?: Resolver<ResolversTypes['Plan'], ParentType, ContextType>;
   planId?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  owner?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  Requiredby?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
   status?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  Start?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
-  Finish?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>;
+  type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -475,9 +471,7 @@ export type Resolvers<ContextType = any> = {
   sumIdeas?: SumIdeasResolvers<ContextType>;
 };
 
-
-/**
- * @deprecated
- * Use "Resolvers" root object instead. If you wish to get "IResolvers", add "typesPrefix: I" to your config.
- */
-export type IResolvers<ContextType = any> = Resolvers<ContextType>;
+export type DirectiveResolvers<ContextType = any> = {
+  requireAuth?: RequireAuthDirectiveResolver<any, any, ContextType>;
+  skipAuth?: SkipAuthDirectiveResolver<any, any, ContextType>;
+};

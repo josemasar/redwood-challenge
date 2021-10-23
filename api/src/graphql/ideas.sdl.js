@@ -17,13 +17,13 @@ export const schema = gql`
   }
 
   type sumIdeas {
-    total: Int
+    total: Int @skipAuth
   }
 
   type Query {
-    ideas: [Idea!]!
-    idea(id: Int!): Idea
-    sumIdeas: [sumIdeas]
+    ideas: [Idea!]! @skipAuth
+    idea(id: Int!): Idea @skipAuth
+    sumIdeas: [sumIdeas] @skipAuth
   }
 
   input CreateIdeaInput {
@@ -55,8 +55,8 @@ export const schema = gql`
   }
 
   type Mutation {
-    createIdea(input: CreateIdeaInput!): Idea!
-    updateIdea(id: Int!, input: UpdateIdeaInput!): Idea!
-    deleteIdea(id: Int!): Idea!
+    createIdea(input: CreateIdeaInput!): Idea! @skipAuth
+    updateIdea(id: Int!, input: UpdateIdeaInput!): Idea! @skipAuth
+    deleteIdea(id: Int!): Idea! @skipAuth
   }
 `
