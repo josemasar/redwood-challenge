@@ -11,3 +11,8 @@
 /**
  * END --- TAILWIND GENERATOR EDIT
  */
+ @layer components {
+  .btn-blue {
+    @apply h-14 w-28 mt-6 mr-12 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+}
